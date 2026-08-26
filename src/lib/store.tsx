@@ -75,9 +75,10 @@ export function StoreProvider({ children }: { children: ReactNode }) {
       const i = prev.findIndex(
         (l) => l.slug === line.slug && l.flavor === line.flavor && l.size === line.size,
       );
-      if (i >= 0) {
+      const existing = prev[i];
+      if (existing) {
         const next = [...prev];
-        next[i] = { ...next[i], qty: next[i].qty + line.qty };
+        next[i] = { ...existing, qty: existing.qty + line.qty };
         return next;
       }
       return [...prev, line];
