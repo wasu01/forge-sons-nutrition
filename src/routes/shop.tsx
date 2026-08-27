@@ -7,25 +7,25 @@ import { Reveal } from "@/components/site/Motion";
 import { cn } from "@/lib/utils";
 
 type ShopSearch = {
-  q?: string;
-  category?: string;
-  goal?: string;
-  sort?: "popular" | "price-asc" | "price-desc" | "rating";
+  q?: string | undefined;
+  category?: string | undefined;
+  goal?: string | undefined;
+  sort?: "popular" | "price-asc" | "price-desc" | "rating" | undefined;
 };
 
 export const Route = createFileRoute("/shop")({
-  validateSearch: (search: Record<string, unknown>): ShopSearch => ({
-    q: typeof search.q === "string" ? search.q : undefined,
-    category: typeof search.category === "string" ? search.category : undefined,
-    goal: typeof search.goal === "string" ? search.goal : undefined,
-    sort:
-      search.sort === "price-asc" ||
-      search.sort === "price-desc" ||
-      search.sort === "rating" ||
-      search.sort === "popular"
-        ? search.sort
-        : undefined,
-  }),
+  validateSearch: (search: Record<string, unknown>): ShopSearch => {
+    const sort = search["sort"];
+    return {
+      q: typeof search["q"] === "string" ? search["q"] : undefined,
+      category: typeof search["category"] === "string" ? search["category"] : undefined,
+      goal: typeof search["goal"] === "string" ? search["goal"] : undefined,
+      sort:
+        sort === "price-asc" || sort === "price-desc" || sort === "rating" || sort === "popular"
+          ? sort
+          : undefined,
+    };
+  },
   head: () => ({
     meta: [
       { title: "Shop All Supplements — Kumar & Kumar Sons" },
