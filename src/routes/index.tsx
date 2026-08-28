@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FlaskConical, Truck, Star, ArrowRight } from "lucide-react";
-import heroTub from "@/assets/hero-tub.png";
+import { Hero3D } from "@/components/site/Hero3D";
 import lifestyle from "@/assets/lifestyle-train.jpg";
 import goalMuscle from "@/assets/goal-muscle.jpg";
 import goalLean from "@/assets/goal-lean.jpg";
@@ -13,13 +13,13 @@ import { Reveal, Counter, Magnetic } from "@/components/site/Motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kumar & Kumar Sons — Premium Protein & Sports Nutrition" },
+      { title: "Kumar & Kumar Sports — Premium Protein & Sports Nutrition" },
       {
         name: "description",
         content:
           "Lab-tested whey protein, isolate, creatine and pre-workout built in India. Batch traceable, athlete approved, free shipping over ₹1,499.",
       },
-      { property: "og:title", content: "Kumar & Kumar Sons — Built Different" },
+      { property: "og:title", content: "Kumar & Kumar Sports — Built Different" },
       {
         property: "og:description",
         content: "Premium performance nutrition engineered for people who refuse to settle.",
@@ -67,7 +67,7 @@ function Home() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-base text-muted-foreground">
-                Kumar &amp; Kumar Sons builds performance nutrition with published labels,
+                Kumar &amp; Kumar Sports builds performance nutrition with published labels,
                 third-party testing and zero filler math. Train harder. Recover faster.
               </p>
             </Reveal>
@@ -111,19 +111,10 @@ function Home() {
           </div>
 
           <Reveal delay={120} className="relative">
-            <div
-              className="absolute inset-8 rounded-full blur-3xl"
-              style={{ background: "var(--gradient-acid)", opacity: 0.22 }}
-              aria-hidden="true"
-            />
-            <img
-              src={heroTub}
-              alt="Kumar & Kumar Sons signature whey protein tub"
-              width={900}
-              height={900}
-              fetchPriority="high"
-              className="float-slow relative mx-auto w-full max-w-md object-contain drop-shadow-2xl"
-            />
+            <Hero3D />
+            <p className="label-caps mt-2 text-center text-[0.6rem] text-muted-foreground">
+              Drag to spin the tub
+            </p>
           </Reveal>
         </div>
       </section>

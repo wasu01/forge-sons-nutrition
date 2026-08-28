@@ -17,11 +17,11 @@ export const Route = createFileRoute("/product/$slug")({
   head: ({ loaderData }) => {
     if (!loaderData) {
       return {
-        meta: [{ title: "Product unavailable — Kumar & Kumar Sons" }, { name: "robots", content: "noindex" }],
+        meta: [{ title: "Product unavailable — Kumar & Kumar Sports" }, { name: "robots", content: "noindex" }],
       };
     }
     const p = loaderData.product;
-    const title = `${p.name} — Kumar & Kumar Sons`;
+    const title = `${p.name} — Kumar & Kumar Sports`;
     return {
       meta: [
         { title },
