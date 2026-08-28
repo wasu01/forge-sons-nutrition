@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShieldCheck, FlaskConical, Truck, Star, ArrowRight } from "lucide-react";
-import heroTub from "@/assets/hero-tub.png";
+import { Hero3D } from "@/components/site/Hero3D";
 import lifestyle from "@/assets/lifestyle-train.jpg";
 import goalMuscle from "@/assets/goal-muscle.jpg";
 import goalLean from "@/assets/goal-lean.jpg";
