@@ -111,19 +111,10 @@ function Home() {
           </div>
 
           <Reveal delay={120} className="relative">
-            <div
-              className="absolute inset-8 rounded-full blur-3xl"
-              style={{ background: "var(--gradient-acid)", opacity: 0.22 }}
-              aria-hidden="true"
-            />
-            <img
-              src={heroTub}
-              alt="Kumar & Kumar Sports signature whey protein tub"
-              width={900}
-              height={900}
-              fetchPriority="high"
-              className="float-slow relative mx-auto w-full max-w-md object-contain drop-shadow-2xl"
-            />
+            <Hero3D />
+            <p className="label-caps mt-2 text-center text-[0.6rem] text-muted-foreground">
+              Drag to spin the tub
+            </p>
           </Reveal>
         </div>
       </section>
