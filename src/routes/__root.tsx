@@ -82,13 +82,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Kumar & Kumar Sons — Performance Nutrition" },
+      { title: "Kumar & Kumar Sports — Performance Nutrition" },
       {
         name: "description",
         content:
-          "Lab-tested whey protein, creatine and performance supplements engineered in India by Kumar & Kumar Sons.",
+          "Lab-tested whey protein, creatine and performance supplements engineered in India by Kumar & Kumar Sports.",
       },
-      { name: "author", content: "Kumar & Kumar Sons" },
+      { name: "author", content: "Kumar & Kumar Sports" },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],

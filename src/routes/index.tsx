@@ -13,13 +13,13 @@ import { Reveal, Counter, Magnetic } from "@/components/site/Motion";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Kumar & Kumar Sons — Premium Protein & Sports Nutrition" },
+      { title: "Kumar & Kumar Sports — Premium Protein & Sports Nutrition" },
       {
         name: "description",
         content:
           "Lab-tested whey protein, isolate, creatine and pre-workout built in India. Batch traceable, athlete approved, free shipping over ₹1,499.",
       },
-      { property: "og:title", content: "Kumar & Kumar Sons — Built Different" },
+      { property: "og:title", content: "Kumar & Kumar Sports — Built Different" },
       {
         property: "og:description",
         content: "Premium performance nutrition engineered for people who refuse to settle.",
@@ -67,7 +67,7 @@ function Home() {
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-base text-muted-foreground">
-                Kumar &amp; Kumar Sons builds performance nutrition with published labels,
+                Kumar &amp; Kumar Sports builds performance nutrition with published labels,
                 third-party testing and zero filler math. Train harder. Recover faster.
               </p>
             </Reveal>
@@ -118,7 +118,7 @@ function Home() {
             />
             <img
               src={heroTub}
-              alt="Kumar & Kumar Sons signature whey protein tub"
+              alt="Kumar & Kumar Sports signature whey protein tub"
               width={900}
               height={900}
               fetchPriority="high"
