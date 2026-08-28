@@ -136,7 +136,9 @@
 }
 
 @utility acid-text {
-  color: var(--primary);
+  background: var(--gradient-acid);
+  background-clip: text;
+  color: transparent;
 }
 
 @utility acid-glow {
