@@ -3,8 +3,8 @@ export function Mark({ className = "h-7 w-7" }: { className?: string }) {
     <svg viewBox="0 0 48 48" className={className} aria-hidden="true">
       <defs>
         <linearGradient id="kks-mark" x1="0" y1="0" x2="1" y2="1">
-          <stop offset="0%" stopColor="oklch(0.92 0.24 128)" />
-          <stop offset="100%" stopColor="oklch(0.8 0.2 148)" />
+          <stop offset="0%" stopColor="oklch(0.62 0.25 27)" />
+          <stop offset="100%" stopColor="oklch(0.56 0.22 258)" />
         </linearGradient>
       </defs>
       <path
