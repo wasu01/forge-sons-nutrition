@@ -24,6 +24,8 @@ export const Route = createFileRoute("/")({
         property: "og:description",
         content: "Premium performance nutrition engineered for people who refuse to settle.",
       },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: Home,
@@ -37,38 +39,35 @@ const GOAL_IMAGES: Record<string, string> = {
 
 function Home() {
   const bestsellers = [...products].sort((a, b) => b.popularity - a.popularity).slice(0, 4);
-  const featured = products[0]!;
+  const featured = products[0];
+  if (!featured) return null;
 
   return (
     <>
       {/* HERO */}
-      <section className="relative overflow-hidden">
+      <section className="relative overflow-hidden bg-background">
         <div className="grain-grid absolute inset-0 opacity-60" aria-hidden="true" />
-        <div
-          className="pulse-orb absolute -top-40 left-1/2 h-[36rem] w-[36rem] -translate-x-1/2 rounded-full blur-3xl"
-          style={{ background: "var(--gradient-acid)", opacity: 0.18 }}
-          aria-hidden="true"
-        />
-        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pt-14 pb-16 sm:px-6 md:grid-cols-2 md:pt-24 md:pb-24">
+        <div className="relative mx-auto grid max-w-7xl items-center gap-10 px-4 pt-10 pb-14 sm:px-6 md:grid-cols-[0.88fr_1.12fr] md:pt-16 md:pb-20">
           <div>
             <Reveal>
-              <span className="label-caps inline-flex items-center gap-2 rounded-sm border border-primary/40 px-3 py-1.5 text-primary">
-                Made in India · Lab Tested
+              <span className="label-caps inline-flex items-center gap-2 rounded-sm border border-primary/40 bg-card px-3 py-1.5 text-primary shadow-sm">
+                Made in India <span className="text-accent">·</span> Lab Tested
               </span>
             </Reveal>
             <Reveal delay={80}>
-              <h1 className="display-xl mt-6 text-[3.2rem] sm:text-7xl lg:text-8xl">
-                Fuel that
+              <p className="label-caps mt-7 text-muted-foreground">The performance nutrition system</p>
+              <h1 className="display-xl mt-4 text-[3.35rem] text-foreground sm:text-7xl lg:text-8xl">
+                Train with
                 <br />
-                <span className="acid-text">refuses</span>
+                <span className="acid-text">intent.</span>
                 <br />
-                to settle
+                Recover <span className="text-accent">strong.</span>
               </h1>
             </Reveal>
             <Reveal delay={160}>
               <p className="mt-6 max-w-md text-base text-muted-foreground">
-                Kumar &amp; Kumar Sports builds performance nutrition with published labels,
-                third-party testing and zero filler math. Train harder. Recover faster.
+                Kumar &amp; Kumar Sports makes precise, no-excuse fuel for the work between
+                “I should” and “I did.” Published labels. Third-party testing. Zero filler math.
               </p>
             </Reveal>
             <Reveal delay={240}>
@@ -76,7 +75,7 @@ function Home() {
                 <Magnetic>
                   <Link
                     to="/shop"
-                    className="acid-glow inline-flex items-center gap-2 rounded-sm bg-primary px-7 py-4 text-xs font-bold tracking-widest text-primary-foreground uppercase"
+                    className="acid-glow inline-flex items-center gap-2 rounded-sm bg-primary px-7 py-4 text-xs font-bold tracking-widest text-primary-foreground uppercase transition-transform hover:-translate-y-0.5"
                   >
                     Shop the range <ArrowRight className="h-4 w-4" />
                   </Link>
@@ -84,14 +83,14 @@ function Home() {
                 <Link
                   to="/product/$slug"
                   params={{ slug: featured.slug }}
-                  className="inline-flex items-center gap-2 rounded-sm border border-border px-7 py-4 text-xs font-bold tracking-widest uppercase transition-colors hover:border-primary hover:text-primary"
+                  className="inline-flex items-center gap-2 rounded-sm border border-foreground/20 bg-card px-7 py-4 text-xs font-bold tracking-widest uppercase transition-colors hover:border-accent hover:text-accent"
                 >
                   Bestseller — {formatINR(featured.price)}
                 </Link>
               </div>
             </Reveal>
             <Reveal delay={320}>
-              <dl className="mt-12 grid max-w-md grid-cols-3 gap-6 border-t border-border pt-6">
+            <dl className="mt-12 grid max-w-md grid-cols-3 gap-5 border-t border-border pt-6">
                 {[
                   { n: 120, s: "k+", l: "Athletes fuelled" },
                   { n: 4.8, s: "★", l: "Average rating", d: 1 },
@@ -111,10 +110,15 @@ function Home() {
           </div>
 
           <Reveal delay={120} className="relative">
+            <div className="mb-3 flex items-center justify-between px-1">
+              <span className="label-caps text-accent">The KKS system / 01</span>
+              <span className="label-caps text-muted-foreground">Auto orbit · touch ready</span>
+            </div>
             <Hero3D />
-            <p className="label-caps mt-2 text-center text-[0.6rem] text-muted-foreground">
-              Drag to spin the tub
-            </p>
+            <div className="mt-3 flex items-center justify-between px-1 text-[0.6rem] text-muted-foreground">
+              <span className="label-caps">Signature whey / isolate / ignition</span>
+              <span className="label-caps text-primary">Drag to rotate</span>
+            </div>
           </Reveal>
         </div>
       </section>

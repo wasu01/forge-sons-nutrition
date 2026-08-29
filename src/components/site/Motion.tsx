@@ -37,8 +37,10 @@ export function Reveal({
     return () => io.disconnect();
   }, []);
 
+  const Component = Tag as "div";
+
   return (
-    <Tag
+    <Component
       ref={ref}
       style={{ transitionDelay: `${delay}ms` }}
       className={cn("reveal", shown && "reveal-in", className)}
