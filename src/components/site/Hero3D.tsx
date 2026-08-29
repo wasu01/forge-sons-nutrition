@@ -24,11 +24,11 @@ type TubVariant = {
   name: string;
 };
 
-const VARIANTS: Record<string, TubVariant> = {
+const VARIANTS = {
   signature: { body: RED, band: NAVY, lid: BLUE, label: WHITE, accent: BLUE, name: "SIGNATURE" },
   isolate: { body: WHITE, band: BLUE, lid: NAVY, label: WHITE, accent: RED, name: "ISOLATE" },
   ignition: { body: BLUE, band: NAVY, lid: RED, label: WHITE, accent: RED, name: "IGNITION" },
-};
+} satisfies Record<string, TubVariant>;
 
 function ProductTub({
   variant = "signature",
@@ -40,7 +40,7 @@ function ProductTub({
   spin?: boolean;
 }) {
   const ref = useRef<Group>(null);
-  const colors = VARIANTS[variant] ?? VARIANTS.signature;
+  const colors = VARIANTS[variant] ?? VARIANTS["signature"];
 
   useFrame((state, delta) => {
     const g = ref.current;
